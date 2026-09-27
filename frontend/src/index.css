@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+@import 'tailwindcss';
+
+/* Apply Premium Typography Globally */
+html, body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+
+/* Enable class-based dark mode in Tailwind v4 */
+@variant dark (&:where(.dark, .dark *));
+
+/* Theme Definitions: Emerald + Charcoal Scheme */
+:root {
+  --color-brand-primary: #059669; /* Emerald 600 */
+  --color-brand-primary-hover: #047857;
+  --color-brand-secondary: #14b8a6; /* Teal 500 */
+  --color-brand-secondary-hover: #0d9488;
+  --color-brand-highlight: #2dd4bf; /* Teal 400 */
+  --color-brand-highlight-hover: #14b8a6;
+  --color-brand-success: #10b981;
+  --color-brand-pending: #f59e0b;
+  --color-brand-danger: #f43f5e;
+  
+  --color-bg-app: #f8faf8; /* Soft green-tinted off-white background */
+  --color-card-app: #ffffff; /* White card surface */
+  --color-card-secondary: #f0fdf4; /* Light green tint card surface */
+  --color-border-app: #e5e7eb; /* Light gray border */
+  
+  --color-text-primary: #1f2937; /* Dark gray heading text */
+  --color-text-secondary: #4b5563; /* Slate secondary text */
+}
+
+.dark {
+  --color-brand-primary: #10b981; /* Emerald 500 */
+  --color-brand-primary-hover: #059669;
+  --color-brand-secondary: #2dd4bf; /* Teal 400 */
+  --color-brand-secondary-hover: #14b8a6;
+  --color-brand-highlight: #5eead4; /* Teal 300 */
+  --color-brand-highlight-hover: #2dd4bf;
+  --color-brand-success: #34d399;
+  --color-brand-pending: #fbbf24;
+  --color-brand-danger: #fb7185;
+  
+  --color-bg-app: #0e1111; /* Charcoal black background */
+  --color-card-app: #1a1f1f; /* Charcoal secondary card surface */
+  --color-card-secondary: #242b2b; /* Slightly lighter surface */
+  --color-border-app: #2d3748; /* Slate border */
+  
+  --color-text-primary: #f3f4f6; /* Off-white primary text */
+  --color-text-secondary: #cbd5e1; /* Light gray secondary text */
+}
+
+@theme {
+  --color-brand-primary: var(--color-brand-primary);
+  --color-brand-primary-hover: var(--color-brand-primary-hover);
+  --color-brand-secondary: var(--color-brand-secondary);
+  --color-brand-secondary-hover: var(--color-brand-secondary-hover);
+  --color-brand-highlight: var(--color-brand-highlight);
+  --color-brand-highlight-hover: var(--color-brand-highlight-hover);
+  --color-brand-success: var(--color-brand-success);
+  --color-brand-pending: var(--color-brand-pending);
+  --color-brand-danger: var(--color-brand-danger);
+  
+  --color-bg-app: var(--color-bg-app);
+  --color-card-app: var(--color-card-app);
+  --color-card-secondary: var(--color-card-secondary);
+  --color-border-app: var(--color-border-app);
+  
+  --color-text-primary: var(--color-text-primary);
+  --color-text-secondary: var(--color-text-secondary);
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #2d3748;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #3e4a5f;
+}
+
+/* Glassmorphism Styles */
+.glass {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(229, 231, 235, 0.7);
+}
+
+.dark .glass {
+  background: rgba(26, 31, 31, 0.8);
+  border-bottom: 1px solid rgba(45, 55, 72, 0.7);
+}
+
+/* Print CSS Configurations */
+@media print {
+  html, body {
+    height: auto;
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    font-size: 12px !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-area {
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  @page {
+    size: A4;
+    margin: 1.5cm;
+  }
+}
+
+/* Custom Interactive Micro-Animations */
+.hover-lift {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px -4px rgba(5, 150, 105, 0.08), 0 4px 8px -4px rgba(0, 0, 0, 0.02);
+}
+
+.dark .hover-lift:hover {
+  box-shadow: 0 8px 20px -4px rgba(16, 185, 129, 0.15), 0 4px 8px -4px rgba(0, 0, 0, 0.2);
+}
+
+.hover-glow {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hover-glow:hover {
+  border-color: rgba(5, 150, 105, 0.4);
+  box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.05);
+}
+
+.dark .hover-glow:hover {
+  border-color: rgba(16, 185, 129, 0.4);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.08);
+}
+
+/* Smooth Input Transition */
+input, select, textarea {
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: rgba(5, 150, 105, 0.6) !important;
+  box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1) !important;
+}
+
+.dark input:focus, .dark select:focus, .dark textarea:focus {
+  border-color: rgba(16, 185, 129, 0.6) !important;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.12) !important;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Interactive link hover background */
+.nav-link-hover {
+  position: relative;
+}
+
+.nav-link-hover::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-brand-primary);
+  transition: width 0.2s ease, left 0.2s ease;
+}
+
+.nav-link-hover:hover::after {
+  width: 60%;
+  left: 20%;
+}
