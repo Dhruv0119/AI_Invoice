@@ -38,6 +38,7 @@ The application follows a **component-based architecture** with a React frontend
 The application follows a **component-based client-server architecture**.
 
 The frontend is responsible for the user interface and API communication, while the backend handles authentication, business logic, database operations, file processing and AI-related services.
+<img width="261" height="128" alt="image" src="https://github.com/user-attachments/assets/d4b5d70d-8ed8-4dc8-9e68-04dab9b05dcd" />
 
 ![System Architecture](docs/images/system-architecture.png)
 
@@ -60,6 +61,7 @@ The frontend is responsible for the user interface and API communication, while 
 # 🔄 Application Flow
 
 A typical request flows through the following stages:
+<img width="265" height="115" alt="image" src="https://github.com/user-attachments/assets/d502265b-3643-43b2-a798-400af708dc1c" />
 
 ![Application Flow](docs/images/application-flow.png)
 
